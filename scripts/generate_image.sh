@@ -1,15 +1,21 @@
 #!/bin/bash
+
+# 加载 .env 配置
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+ENV_FILE="$SCRIPT_DIR/../.env"
+if [ -f "$ENV_FILE" ]; then
+  set -a; source "$ENV_FILE"; set +a
+else
+  echo "❌ 未找到 .env 文件，请先配置："
+  echo "   cp .env.example .env && vim .env"
+  exit 1
+fi
+
 PROMPT="$1"
 RESOLUTION="${2:-1K}"
-API_KEY="${API_KEY:-your-api-key-here}"
 API_ENDPOINT="https://api.apimart.ai/v1/images/generations"
 POLL_ENDPOINT="https://api.apimart.ai/v1/tasks"
 OUTPUT_DIR="${3:-$HOME/projects/todohub/generated_images}"
-
-# Feishu config
-FEISHU_APP_ID="${FEISHU_APP_ID:-your-app-id}"
-FEISHU_APP_SECRET="${FEISHU_APP_SECRET:-your-app-secret}"
-FEISHU_USER_ID="${FEISHU_USER_ID:-your-user-id}"
 
 unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
 
