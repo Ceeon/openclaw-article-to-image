@@ -9,16 +9,16 @@ PROMPT="$1"
 RESOLUTION="${2:-1K}"
 OUTPUT_DIR="${3:-$HOME/projects/todohub/generated_images}"
 
-# ========== 请填写你的密钥 ==========
-API_KEY="${APIMART_API_KEY:-your-apimart-api-key-here}"
+# ========== 请填写你的密钥（让 Agent 帮你填即可） ==========
+API_KEY="<your-apimart-api-key>"
 API_ENDPOINT="https://api.apimart.ai/v1/images/generations"
 POLL_ENDPOINT="https://api.apimart.ai/v1/tasks"
 
-# 飞书推送（可选，不填则跳过）
-FEISHU_APP_ID="${FEISHU_APP_ID:-}"
-FEISHU_APP_SECRET="${FEISHU_APP_SECRET:-}"
-FEISHU_USER_ID="${FEISHU_USER_ID:-}"
-# ====================================
+# 飞书推送（可选，不需要可留空）
+FEISHU_APP_ID=""
+FEISHU_APP_SECRET=""
+FEISHU_USER_ID=""
+# ===========================================================
 
 unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
 

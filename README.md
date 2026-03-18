@@ -17,23 +17,15 @@ chmod +x scripts/generate_image.sh
 
 ## 配置
 
+安装后让 Agent 帮你填写 `scripts/generate_image.sh` 里的密钥即可。
+
 ### 必需：APImart API Key
 
-在 [APImart](https://apimart.ai) 注册获取 API Key，然后设置环境变量：
-
-```bash
-export APIMART_API_KEY="your-key-here"
-```
+在 [APImart](https://apimart.ai) 注册获取 API Key，填入脚本中的 `API_KEY` 字段。
 
 ### 可选：飞书推送
 
-如果想自动把生成的图片推送到飞书，配置以下环境变量：
-
-```bash
-export FEISHU_APP_ID="your-feishu-app-id"
-export FEISHU_APP_SECRET="your-feishu-app-secret"
-export FEISHU_USER_ID="your-feishu-open-id"
-```
+如果想自动把生成的图片推送到飞书，在脚本中填写 `FEISHU_APP_ID`、`FEISHU_APP_SECRET`、`FEISHU_USER_ID`。不需要可留空。
 
 ## 使用
 
